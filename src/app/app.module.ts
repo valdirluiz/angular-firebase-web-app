@@ -16,6 +16,7 @@ import { HospedesModule } from './hospedes/hospedes.module';
   declarations: [
     AppComponent
   ],
+  exports:[AppRoutingModule],
   imports: [
     BrowserModule,
     AppRoutingModule,
