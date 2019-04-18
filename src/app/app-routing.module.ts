@@ -10,7 +10,7 @@ import { HospedeListComponent } from './hospedes/hospede-list/hospede-list.compo
 const routes: Routes = [
   { path: '', redirectTo: '/registrar-hospede', pathMatch: 'full' },
   { path: 'registrar-hospede', component: AddHospedeComponent },
-  { path: 'visualizar-hospede', component: HospedeListComponent },
+  { path: 'visualizar-hospedes', component: HospedeListComponent },
   { path: 'editar-hospede/:id', component: EditHospedeComponent }
 ];
 
