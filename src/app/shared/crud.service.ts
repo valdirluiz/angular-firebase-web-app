@@ -17,7 +17,7 @@ export class CrudService {
   addHospede(hospede: Hospede) {
     this.hospedesRef.push({
       nome: hospede.nome,
-      pais_origem: hospede.pais_origem
+      paisOrigem: hospede.paisOrigem
     })
   }
 
@@ -34,7 +34,7 @@ export class CrudService {
   atualizaHospede(hospede: Hospede) {
     this.studentRef.update({
       nome: hospede.nome,
-      pais_origem: hospede.pais_origem
+      paisOrigem: hospede.paisOrigem
     })
   }
 
