@@ -8,6 +8,7 @@ import { UiModule } from './ui/ui.module';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { environment } from '../environments/environment';
+import { HospedesModule } from './hospedes/hospedes.module';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,7 @@ import { environment } from '../environments/environment';
     AppRoutingModule,
     UiModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),  
-    AngularFireDatabaseModule   
+    AngularFireDatabaseModule, HospedesModule   
   ],
   providers: [],
   bootstrap: [AppComponent]
