@@ -6,6 +6,10 @@ import { AppComponent } from './app.component';
 import { UiModule } from './ui/ui.module';
 import { HospedesModule } from './hospedes/hospedes.module';
 
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { environment } from '../environments/environment';
+
 @NgModule({
   declarations: [
     AppComponent
@@ -14,7 +18,9 @@ import { HospedesModule } from './hospedes/hospedes.module';
     BrowserModule,
     AppRoutingModule,
     UiModule,
-    HospedesModule
+    HospedesModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),  
+    AngularFireDatabaseModule   
   ],
   providers: [],
   bootstrap: [AppComponent]
