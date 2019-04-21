@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CrudService } from '../../shared/crud.service';    // CRUD services API
+import { CrudService } from '../../service/crud.service';    // CRUD services API
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms'; // Reactive form services
 import { ToastrService } from 'ngx-toastr'; // Alert message using NGX toastr
 
@@ -10,43 +10,43 @@ import { ToastrService } from 'ngx-toastr'; // Alert message using NGX toastr
 })
 export class AddHospedeComponent implements OnInit {
 
-  public studentForm: FormGroup;  // Define FormGroup to student's form
+  public hospedeForm: FormGroup;   
 
   constructor(
-    public crudApi: CrudService,  // CRUD API services
-    public fb: FormBuilder,       // Form Builder service for Reactive forms
-    public toastr: ToastrService  // Toastr service for alert message
+    public crudApi: CrudService,   
+    public fb: FormBuilder,       
+    public toastr: ToastrService  
   ) { }
 
 
   ngOnInit() {
 
     this.crudApi.buscaHospedes();   
-    this.hospedeForm();        
+    this.createHospedeForm();        
   }
 
-  hospedeForm() {
-    this.studentForm = this.fb.group({
+  createHospedeForm() {
+    this.hospedeForm = this.fb.group({
       nome: ['', [Validators.required, Validators.minLength(2)]],
       paisOrigem: ['', [Validators.required]],
 
-    })  
+    });
   }
 
   get nome() {
-    return this.studentForm.get('nome');
+    return this.hospedeForm.get('nome');
   }
 
   get paisOrigem() {
-    return this.studentForm.get('paisOrigem');
+    return this.hospedeForm.get('paisOrigem');
   }
  
 
   
   save() {
-    this.crudApi.addHospede(this.studentForm.value); // Submit student data using CRUD API
-    this.toastr.success(this.studentForm.controls['nome'].value + ' successfully added!'); // Show success message when data is successfully submited
-    this.studentForm.reset();
+    this.crudApi.addHospede(this.hospedeForm.value);  
+    this.toastr.success(this.hospedeForm.controls['nome'].value + ' cadastrado com sucesso!');
+    this.hospedeForm.reset();
    };
 
 

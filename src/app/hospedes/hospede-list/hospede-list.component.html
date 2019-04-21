@@ -1,29 +1,18 @@
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-  <h1 class="h2">Students List</h1>
-  <!-- It won't show if there is no student data -->
-  <a routerLink="registrar-hospede" class="btn btn-success" *ngIf="hideWhenNoStudent">
+  
+  <a routerLink="/registrar-hospede" class="btn btn-success" *ngIf="hideWhenNoHospede">
      Cadastrar Hóspede
   </a>
 </div>
 
 <div class="pricing-header mx-auto">
 
-  <!-- Preloader shows before the data loads-->
-  <div class="no-data text-center" *ngIf="preLoader">
-    <img src="assets/preloader.gif" class="preloader-icon" alt="No student">
+  
+   <div class="no-data text-center" *ngIf="noData">
+     <p class="nodata-msg">Nenhum hóspede cadastrado</p>
   </div>
 
-  <!-- No data shows when their is no student data available -->
-  <div class="no-data text-center" *ngIf="noData">
-    <img src="assets/no-student.svg" class="nodata-msg" alt="No student">
-    <p class="nodata-msg">No student added yet!</p>
-    <a routerLink="/registrar-hospede" class="btn btn-success">
-       Cadastrar Hóspede
-    </a>
-  </div>
-
-  <!-- Showing students data -->
-  <div class="table-responsive" *ngIf="hideWhenNoStudent">
+  <div class="table-responsive" *ngIf="hideWhenNoHospede">
     <table class="table table-bordered table-responsive-sm table-responsive-md table-responsive-lg">
       <thead>
         <tr>
@@ -34,14 +23,13 @@
         </tr>
       </thead>
       <tbody>
-        <!-- *ngFor loop iterates over Student array and fetch the student's data -->
-        <!-- paginate pipe will add pagination in student's list, it won't show if items are less then 7 -->
-        <tr *ngFor="let student of Student | paginate: { itemsPerPage: 7, currentPage: p }; let i = index;">
-          <th scope="row">{{student.$key}}</th>
-          <td>{{student.nome}} {{student.lastName}}</td>
-          <td>{{student.paisOrigem}}</td>
+        
+        <tr *ngFor="let hospede of hospedes | paginate: { itemsPerPage: 3, currentPage: p }; let i = index;">
+          <th scope="row">{{hospede.$key}}</th>
+          <td>{{hospede.nome}}</td>
+          <td>{{hospede.paisOrigem}}</td>
           <td class="text-center action-block">
-            <i class="far fa-trash-alt" (click)="deleteStudent(student)"></i></td>
+            <i class="fas fa-trash-alt" (click)="deleteHospede(hospede)"></i></td>
         </tr>
       </tbody>
     </table>

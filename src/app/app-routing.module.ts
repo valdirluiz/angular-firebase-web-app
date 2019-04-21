@@ -8,14 +8,14 @@ import { HospedeListComponent } from './hospedes/hospede-list/hospede-list.compo
 
 
 const routes: Routes = [
-  { path: '', redirectTo: '/registrar-hospede', pathMatch: 'full' },
+  { path: '', redirectTo: '/visualizar-hospedes', pathMatch: 'full' },
   { path: 'registrar-hospede', component: AddHospedeComponent },
   { path: 'visualizar-hospedes', component: HospedeListComponent },
   { path: 'editar-hospede/:id', component: EditHospedeComponent }
 ];
 
 @NgModule({
-  imports: [CommonModule,RouterModule.forRoot(routes)],
+  imports: [CommonModule, RouterModule.forRoot(routes)],
   exports: [RouterModule],
   declarations: []
 })

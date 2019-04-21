@@ -4,6 +4,7 @@ import { AddHospedeComponent } from "./add-hospede/add-hospede.component";
 import { EditHospedeComponent } from "./edit-hospede/edit-hospede.component";
 import { HospedeListComponent } from "./hospede-list/hospede-list.component";
 import { AppRoutingModule } from "../app-routing.module";
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { NgxPaginationModule } from "ngx-pagination";
@@ -19,7 +20,8 @@ import { NgxPaginationModule } from "ngx-pagination";
     FormsModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    AngularFontAwesomeModule
   ]
 })
 export class HospedesModule {}

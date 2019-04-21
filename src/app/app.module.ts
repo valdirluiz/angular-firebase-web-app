@@ -6,6 +6,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UiModule } from './ui/ui.module';
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
@@ -24,7 +25,8 @@ import { HospedesModule } from './hospedes/hospedes.module';
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireDatabaseModule, HospedesModule,
     BrowserAnimationsModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    AngularFontAwesomeModule
   ],
   
   providers: [],
